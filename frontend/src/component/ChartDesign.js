@@ -43,9 +43,11 @@ export default function ChartDesign({ data }) {
     return (
         <div style={{ display: 'flex', flexDirection:'column' , alignItems: 'center', justifyContent: 'center' }}>
             <div style={{ height: '25vh', width: '35vw', flex:1 }}>
+                <p style={{marginLeft:150}}>Graph According to College in Different state</p>
                 <Doughnut data={dogunutdata} />
             </div>
             <div style={{ height: '25vh', width: '35vw',flex:1 }}>
+            <p style={{marginLeft:150, marginTop:100}}>Graph According to Student in Different state</p>
                 <Doughnut data={dogunutdata} />
             </div>
         </div>

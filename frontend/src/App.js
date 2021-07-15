@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import axios from 'axios';
-import ChartDesign from './component/ChartDesign';
 import NavbarStyle from './component/NavbarStyle';
-import TableStyle from './component/TableStyle';
-
+import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import AddCollege from './component/AddCollege';
+import AddStudent from './component/AddStudent';
+import Home from './component/Home';
 function App() {
   const [data, setdata] = useState([]);
   useEffect(() => {
@@ -13,19 +13,23 @@ function App() {
       setdata(arr);
     })
   }, [])
-  console.log(data);
   return (
-    <div>
+    <>
       <NavbarStyle />
-      <div style={{ height: '2vh' }}>
-      </div>
-      <TableStyle data={data} />
-      <div style={{ height: '4vh' }}>
-      </div>
-      {
-        data.length>0 && <ChartDesign data={data} />
-      }
-    </div>
+      <Router>
+        <Switch>
+          <Route path="/addcollege">
+            <AddCollege />
+          </Route>
+          <Route path="/addstudent">
+            <AddStudent />
+          </Route>
+          <Route path="/">
+            <Home data={data}/>
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

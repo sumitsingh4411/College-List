@@ -5,6 +5,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import AddCollege from './component/AddCollege';
 import AddStudent from './component/AddStudent';
 import Home from './component/Home';
+import FindCollege from './component/FindCollege';
 function App() {
   const [data, setdata] = useState([]);
   useEffect(() => {
@@ -24,8 +25,11 @@ function App() {
           <Route path="/addstudent">
             <AddStudent />
           </Route>
+          <Route path="/searchcollege">
+            <FindCollege/>
+          </Route>
           <Route path="/">
-            <Home data={data}/>
+            <Home data={data} />
           </Route>
         </Switch>
       </Router>

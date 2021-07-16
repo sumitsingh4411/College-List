@@ -39,6 +39,11 @@ export default function NavbarStyle() {
                             Add-Student
                         </Typography>
                     </Link>
+                    <Link href="/searchcollege" style={{ textDecorationLine: 'none', color: 'white', cursor: 'pointer' }}>
+                        <Typography variant="h7" color="inherit" style={{ marginLeft: '1vw' }}>
+                            Search-College
+                        </Typography>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div >

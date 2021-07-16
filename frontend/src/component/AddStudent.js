@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -23,7 +24,9 @@ export default function AddStudent() {
         setsubmit(true);
     }
     return (
-        <div style={{ marginTop: '15vh', width: '100%', height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <>
+        <h1 style={{textAlign:'center', color:'blue', marginTop:'1vh'}}>Add student</h1>
+        <div style={{ marginTop: '3vh', width: '100%', height: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Form style={{ flex: 1, margin: 500 }}>
                 <Form.Group className="mb-3 ">
                     <Form.Label>Name</Form.Label>
@@ -50,5 +53,6 @@ export default function AddStudent() {
                 </Button>
             </Form>
         </div>
+        </>
     )
 }

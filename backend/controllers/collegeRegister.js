@@ -67,7 +67,30 @@ const Register = {
     },
     getCollegebyId(req, res, next) {
         let p = req.params.id;
-        if (p.codePointAt(0) >= 97 && p.codePointAt(0) <= 122) {
+        let state = ["Bihar", "Delhi", "Uttar Pradesh", "Karnataka"];
+        let courses = ["Computer science", "Electronics", "It"];
+        if (state.find(element => element === p)) {
+            console.log('hello sumit')
+            try {
+                collegeSchema.find({ state: p }, (err, result) => {
+                    if (err) return next(err);
+                    res.json({ msg: "success", data: result });
+                })
+            } catch (err) {
+                return next(err);
+            }
+        }
+        else if (courses.find(element => element === p)) {
+            try {
+                collegeSchema.find({ courses: { $all: [p]} }, (err, result) => {
+                    if (err) return next(err);
+                    res.json({ msg: "success", data: result });
+                })
+            } catch (err) {
+                return next(err);
+            }
+        }
+        else if (p.codePointAt(0) >= 97 && p.codePointAt(0) <= 122) {
             try {
                 collegeSchema.find({ name: p }, (err, result) => {
                     if (err) return next(err);
